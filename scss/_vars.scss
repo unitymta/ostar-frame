@@ -1,0 +1,117 @@
+/* ====================================================
+Font
+==================================================== */
+$font-gothic: "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Arial,  Helvetica, Verdana, sans-serif;
+$font-mincho: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "游明朝", "游明朝体", YuMincho, "Yu Mincho", "ＭＳ 明朝", "MS Mincho", "HiraMinProN-W3", "TakaoEx明朝", TakaoExMincho, "MotoyaLCedar", "Droid Sans Japanese", serif;
+
+@mixin font-size($sizeValue) {
+	font-size: ($sizeValue) + px;
+	font-size: ($sizeValue / 10) + rem;
+}
+
+@mixin font-vw($sizeValue) {
+	font-size: ($sizeValue) + px;
+	font-size: ($sizeValue / (1920/100)) + vw;
+}
+
+/* ====================================================
+Position & transform
+==================================================== */
+@mixin v-align {
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	   -moz-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	     -o-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+
+@mixin h-align {
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	   -moz-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	     -o-transform: translateX(-50%);
+	        transform: translateX(-50%);
+}
+
+@mixin v-h-align {
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	   -moz-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	     -o-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+}
+
+@mixin smooth-transition {
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: all .3s ease;
+	   -moz-transition: all .3s ease;
+	    -ms-transition: all .3s ease;
+	     -o-transition: all .3s ease;
+	        transition: all .3s ease;
+}
+
+/* ====================================================
+Color
+==================================================== */
+
+/* ====================================================
+Sizing
+==================================================== */
+$base-size: 16px;
+@function px-em($target, $context: $base-size) {
+	@if $target == 0 {
+		@return 0
+	}
+	@return $target / $context + 0em;
+}
+
+@for $i from 1 through 1000 {
+	@media screen and (min-width: 769px) {
+		.mtpc-#{$i} {
+			margin-top: $i + px;
+		}
+		.mbpc-#{$i} {
+			margin-bottom: $i + px;
+		}
+		.ptpc-#{$i} {
+			padding-top: $i + px;
+		}
+		.pbpc-#{$i} {
+			padding-bottom: $i + px;
+		}
+	}
+	@media screen and (max-width: 768px) {
+		.mtsp-#{$i} {
+			margin-top: $i + px;
+		}
+		.mbsp-#{$i} {
+			margin-bottom: $i + px;
+		}
+		.ptsp-#{$i} {
+			padding-top: $i + px;
+		}
+		.pbsp-#{$i} {
+			padding-bottom: $i + px;
+		}
+	}
+}
+
+/* ====================================================
+Misc
+==================================================== */
+@mixin no-select {
+	 -khtml-user-select: none;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	     -o-user-select: none;
+	        user-select: none;
+}
+
+@function calc-vw($size) {
+	$vwSize: ($size / 1920) * 100;
+	@return #{$vwSize}vw;
+}

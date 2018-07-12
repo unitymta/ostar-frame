@@ -1,0 +1,102 @@
+/* ====================================================
+Base style & container
+==================================================== */
+body {
+	color: black;
+	font-family: $font-gothic;
+	font-size: 100%;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.4;
+}
+
+.container {
+	display: block;
+	margin: 0 auto;
+	&.container-sm {
+		max-width: 1030px;
+		padding: 0 15px;
+	}
+	&.container-md {
+		max-width: 1230px;
+		padding: 0 20px;
+	}
+	&.container-lg {
+		max-width: 1530px;
+		padding: 0 25px;
+	}
+}
+
+.pc {
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
+}
+
+.sp {
+	@media screen and (min-width: 769px) {
+		display: none;
+	}
+}
+
+/* ====================================================
+Float & clear
+==================================================== */
+.clearfix {
+	*zoom: 1;
+	&:before {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+}
+
+/* ====================================================
+Header & footer
+==================================================== */
+
+
+
+
+/* ====================================================
+Components
+==================================================== */
+
+/* ====================================================
+Typography
+==================================================== */
+.txt-center {
+	text-align: center;
+}
+
+.txt-right {
+	text-align: right;
+}
+
+.txt-left {
+	text-align: left;
+}
+
+/* ====================================================
+Buttons, input, .etc
+==================================================== */
+.btn {
+	background-color: white;
+	border: 1px solid black;
+	color: #000000;
+	display: inline-block;
+	@include smooth-transition;
+	&.btn-block {
+		width: 100%;
+	}
+	&.btn-black {
+		background-color: black;
+		color: white;
+	}
+	&.btn-rounded {
+		border-radius: 5px;
+	}
+}
